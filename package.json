@@ -1,0 +1,29 @@
+{
+  "name": "intersects",
+  "version": "0.0.0",
+  "description": "Detect intersection of two rectangles",
+  "main": "index.js",
+  "dependencies": {
+    "mumath": "~0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dfcreative/intersects.git"
+  },
+  "keywords": [
+    "draggable",
+    "intersection",
+    "enteredViewport",
+    "collision"
+  ],
+  "author": "dfcreative",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dfcreative/intersects/issues"
+  },
+  "homepage": "https://github.com/dfcreative/intersects"
+}
