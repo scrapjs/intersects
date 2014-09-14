@@ -1,8 +1,12 @@
 var type = require('mutypes');
 var mumath = require('mumath');
 
+
 /** @module  intersects */
-module.exports = intersect;
+module.exports = intersects;
+
+
+var min = Math.min, max = Math.max;
 
 
 /** Default settings */
@@ -37,18 +41,19 @@ function intersects (a, b, opts){
 	if (a.bottom < b.top || a.top > b.bottom) return false;
 
 	//intersection values
-	var iX = Math.min(a.right - b.left, b.right - a.left);
-	var iY = Math.min(a.bottom - b.top, b.bottom - a.top);
+	var iX = min(a.right - max(b.left, a.left), b.right - max(a.left, b.left));
+	var iY = min(a.bottom - max(b.top, a.top), b.bottom - max(a.top, b.top));
 	var iSquare = iX * iY;
 
 	var bSquare = (b.bottom - b.top) * (b.right - b.left);
 	var aSquare = (a.bottom - a.top) * (a.right - a.left);
 
 	//measure square overlap relative to the min square
-	var targetSquare = Math.min(aSquare, bSquare);
+	var targetSquare = min(aSquare, bSquare);
+
 
 	//minimal overlap ratio
-	var minRatio = opts && opts.tolerance || defaults.tolerance;
+	var minRatio = opts && opts.tolerance !== undefined ? opts.tolerance : defaults.tolerance;
 
 	if (iSquare / targetSquare > minRatio) {
 		return true;
