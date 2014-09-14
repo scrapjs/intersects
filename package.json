@@ -1,6 +1,6 @@
 {
   "name": "intersects",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Detect intersection of two rectangles",
   "main": "index.js",
   "dependencies": {
