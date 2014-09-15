@@ -4,7 +4,6 @@
   "description": "Detect intersection of two rectangles",
   "main": "index.js",
   "dependencies": {
-    "mumath": "~0.0.1"
   },
   "devDependencies": {},
   "scripts": {

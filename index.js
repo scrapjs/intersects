@@ -1,7 +1,3 @@
-var type = require('mutypes');
-var mumath = require('mumath');
-
-
 /** @module  intersects */
 module.exports = intersects;
 
