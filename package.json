@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "Detect intersection of two rectangles",
   "main": "index.js",
+  "files": "index.js",
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
