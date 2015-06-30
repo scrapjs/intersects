@@ -5,24 +5,6 @@ module.exports = intersects;
 var min = Math.min, max = Math.max;
 
 
-/** Default settings */
-var defaults = {
-	/** Target container to observe within */
-	within: undefined,
-
-	/** Offsets from container to provide gaps */
-	offsets: 0,
-
-	/** The amount of square to detect intersection.
-	 * 0 - touches
-	 * 1 - fits
-	 * .5 - 50% square intersection
-	 * @type {(Function|value)}
-	 */
-	tolerance: .5
-};
-
-
 /**
  * Main intersection detector.
  *
@@ -31,7 +13,7 @@ var defaults = {
  *
  * @return {bool} Whether target is within the container
  */
-function intersects (a, b, opts){
+function intersects (a, b, tolerance){
 	//ignore definite disintersection
 	if (a.right < b.left || a.left > b.right) return false;
 	if (a.bottom < b.top || a.top > b.bottom) return false;
@@ -49,9 +31,9 @@ function intersects (a, b, opts){
 
 
 	//minimal overlap ratio
-	var minRatio = opts && opts.tolerance !== undefined ? opts.tolerance : defaults.tolerance;
+	tolerance = tolerance !== undefined ? tolerance : 0.5;
 
-	if (iSquare / targetSquare > minRatio) {
+	if (iSquare / targetSquare > tolerance) {
 		return true;
 	}
 
